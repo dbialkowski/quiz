@@ -1,0 +1,237 @@
+body{
+background-color:#FFE4B5;
+}
+
+#signup_hover {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+}
+#signup {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.698);
+    display: none;
+    padding-bottom: 2px;
+    width: 404px;
+}
+#signup-header {
+    background: url("../img/hd-bg.png") repeat scroll 0 0 transparent;
+    border-bottom: 1px solid #CCCCCC;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 18px 18px 14px;
+}
+#signup-header h2 {
+    color: #444444;
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 3px;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+}
+#signup-header p {
+    color: #444444;
+    font-size: 1.3em;
+    margin: 0;
+    text-shadow: none;
+}
+#signup .txt-fld {
+    border-bottom: 1px solid #EEEEEE;
+    padding: 14px 20px;
+    position: relative;
+    text-align: right;
+    width: 364px;
+}
+#signup .btn-fld {
+    overflow: hidden;
+    padding: 12px 20px 12px 130px;
+    width: 254px;
+}
+#signup .txt-fld label {
+    color: #222222;
+    display: block;
+    float: left;
+    font-size: 1.3em;
+    padding-top: 8px;
+    text-align: left;
+    width: 90px;
+}
+#signup .txt-fld input {
+    background: none repeat scroll 0 0 #F7F7F7;
+    border-color: #CCCCCC #E7E6E6 #E7E6E6 #CCCCCC;
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 1px;
+    color: #222222;
+    font-family: "Helvetica Neue";
+    font-size: 1.2em;
+    outline: medium none;
+    padding: 8px;
+    width: 244px;
+}
+#signup .txt-fld input.good_input {
+    background: url("../img/good.png") no-repeat scroll 236px center #DEF5E1;
+}
+#signup .txt-fld input.error_input {
+    background: none repeat scroll 0 0 #FDE0E0;
+}
+
+.big-button-green{
+	padding:5px 20px;
+	display:inline-block;
+	font-weight:bold;
+	border: 1px solid #329345;
+	font-size: 28px;
+	color: #fff !important;
+	background-color: #47bc60;
+	border-radius:30px;
+	cursor:pointer;
+	background-image: url(/images/noise.png),-webkit-linear-gradient(top, #47bc60, #39a64e);
+	background-image: url(/images/noise.png),-moz-linear-gradient(top, #47bc60, #39a64e);
+	background-image: url(/images/noise.png),-o-linear-gradient(top, #47bc60, #39a64e);
+	background-image: url(/images/noise.png),-ms-linear-gradient(top, #47bc60, #39a64e);
+	background-image: url(/images/noise.png),linear-gradient(top, #47bc60, #39a64e);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#47bc60', EndColorStr='#39a64e');
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.1), inset 1px 0 0 rgba(255,255,255,0.05), inset -1px 0 0 rgba(255,255,255,0.05), inset 0 1px 0 rgba(0,0,0,0.08);
+	-moz-box-shadow: 0 1px 1px rgba(0,0,0,0.1), inset 1px 0 0 rgba(255,255,255,0.05), inset -1px 0 0 rgba(255,255,255,0.05), inset 0 1px 0 rgba(0,0,0,0.08);
+	ms-box-shadow: 0 1px 1px rgba(0,0,0,0.1), inset 1px 0 0 rgba(255,255,255,0.05), inset -1px 0 0 rgba(255,255,255,0.05), inset 0 1px 0 rgba(0,0,0,0.08);
+	-o-box-shadow: 0 1px 1px rgba(0,0,0,0.1), inset 1px 0 0 rgba(255,255,255,0.05), inset -1px 0 0 rgba(255,255,255,0.05), inset 0 1px 0 rgba(0,0,0,0.08);
+	box-shadow: 0 1px 1px rgba(0,0,0,0.1), inset 1px 0 0 rgba(255,255,255,0.05), inset -1px 0 0 rgba(255,255,255,0.05), inset 0 1px 0 rgba(0,0,0,0.08);
+	background-position: 50% 50%;
+	text-shadow: 0 1px 1px #2c803c;
+}
+
+.big-button-green:active{
+	border-color: #256d33;
+	background: #369e4a;
+	color: rgba(255,255,255,0.8) !important;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.3) !important;
+}
+
+.center-wrapper{
+width:1000px;margin-left:auto;margin-right:auto;
+}
+
+.cf-quiz-top {
+width:1000px;height:500px;background-color:#eeeeee;margin-bottom:1em;margin-right:10px;
+}
+
+.fl-quiz-left{width:600px;height:440px;}
+
+.fl-quiz-right{
+	position: relative;
+	 left: 797px; 
+	top: -441px;	
+	width:200px;
+	height:498px;
+	background-color:#E01;
+	margin: 1px;
+	padding: 1px;
+}
+
+
+.cf-title .fl{
+	padding:5px 66px;
+	display:inline-block;
+	font-weight:bold;
+	border: 1px solid #329345;
+	font-size: 28px;
+	color: #fff !important;
+	background-color: #696969;
+	border-radius:30px;
+	cursor:pointer;
+	background-image: url(/images/noise.png),-webkit-linear-gradient(top, #696969, #39a64e);
+	background-image: url(/images/noise.png),-moz-linear-gradient(top, #696969, #39a64e);
+	background-image: url(/images/noise.png),-o-linear-gradient(top, #696969, #39a64e);
+	background-image: url(/images/noise.png),-ms-linear-gradient(top, #696969, #39a64e);
+	background-image: url(/images/noise.png),linear-gradient(top, #696969, #39a64e);
+	background-position: 50% 50%;
+	text-shadow: 0 1px 1px #2c803c;
+}
+
+.questions{
+	padding:60px 280px;
+	display:inline-block;
+	font-weight:bold;
+	border: 1px solid #329345;
+	font-size: 28px;
+	color: #fff !important;
+	background-color: #c0c0c0;
+	border-radius:30px;
+	cursor:pointer;
+	background-image: url(/images/noise.png),-webkit-linear-gradient(top, #f0f8ff, #00ffff);
+	background-image: url(/images/noise.png),-moz-linear-gradient(top, #f0f8ff, #00ffff);
+	background-image: url(/images/noise.png),-o-linear-gradient(top, #f0f8ff, #00ffff);
+	background-image: url(/images/noise.png),-ms-linear-gradient(top, #f0f8ff, #00ffff);
+	background-image: url(/images/noise.png),linear-gradient(top, #f0f8ff, #00ffff);
+	background-position: 50% 50%;
+	text-shadow: 0 1px 1px #2c803c;
+}
+
+.answer1,.answer2,.answer3,.answer4{
+	padding:60px 160px;
+	display:inline-block;
+	font-weight:bold;
+	border: 1px solid #808080;
+	font-size: 28px;
+	color: #fff !important;
+	background-color: #fffff0;
+	border-radius:30px;
+	cursor:pointer;
+	background-image: url(/images/noise.png),-webkit-linear-gradient(top, #fffff0, #f0e68c);
+	background-image: url(/images/noise.png),-moz-linear-gradient(top, #fffff0, #f0e68c);
+	background-image: url(/images/noise.png),-o-linear-gradient(top, #fffff0, #f0e68c);
+	background-image: url(/images/noise.png),-ms-linear-gradient(top, #fffff0, #f0e68c);
+	background-image: url(/images/noise.png),linear-gradient(top, #fffff0, #f0e68c);
+	background-position: 50% 50%;
+	text-shadow: 0 1px 1px #2c803c;
+}
+.answer1:active,.answer2:active,.answer3:active,.answer4:active{
+	border-color: #256d33;
+	background: #ee82ee;
+	color: rgba(255,255,255,0.8) !important;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.3) !important;
+}
+.questions{
+	position: relative;
+	top: 20px;
+	left: 100px;
+}
+
+.answer1{
+position: relative;
+	left: 30px; 
+	top: 30px;	
+}
+.answer2{
+position: relative;
+	left: 400px; 
+	top: -125px;	
+	
+}
+.answer3{
+position: relative;
+	left: 30px; 
+	top: -125px;	
+	
+}
+.answer4{
+position: relative;
+	left: 400px; 
+	top: -280px;	
+	
+}
+
+
+
+
+
+
+
+
+
