@@ -51,14 +51,17 @@ var socket = io.connect('http://localhost:8000');
 	return false;
 	});
 
-$('.button-begin #change-button').on('click', function (){
+$('.button').live('click', function (){
+	$('#mask , .login-popup').fadeOut(300 , function() {
+		$('#mask').remove();  
+	}); 
 	handleNick();
 
 });
 
 function handleNick(){
-	 nickname = $('.input #send-nick').attr('value');
-	 nicknameMy = $('.input #send-nick').attr('value');
+	 nickname = $('#username').attr('value');
+	 nicknameMy = $('#username').attr('value');
 	socket.emit('connect', { nickname: nickname });
 
 	showNickname(nickname,true,false);

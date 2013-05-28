@@ -14,7 +14,7 @@ Members = new Object();
 		console.log('connection');
 		socket.on('connect', function(data){			
 			connect(socket, data);
-			
+			console.log(data);
 		});
 	});
 
