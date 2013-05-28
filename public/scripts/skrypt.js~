@@ -19,7 +19,7 @@ var socket = io.connect('http://localhost:8000');
 		};
 
  
-$(".big-button-green").leanModal();
+$('a[rel*=leanModal]').leanModal({ top : 200, closeButton: ".modal_close" });
 
 $('.button-begin #change-button').on('click', function (){
 	handleNick();

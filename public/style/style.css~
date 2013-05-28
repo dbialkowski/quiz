@@ -191,7 +191,12 @@ width:1000px;height:500px;background-color:#eeeeee;margin-bottom:1em;margin-righ
 	background-position: 50% 50%;
 	text-shadow: 0 1px 1px #2c803c;
 }
-
+.answer1:active,.answer2:active,.answer3:active,.answer4:active{
+	border-color: #256d33;
+	background: #ee82ee;
+	color: rgba(255,255,255,0.8) !important;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.3) !important;
+}
 .questions{
 	position: relative;
 	top: 20px;
