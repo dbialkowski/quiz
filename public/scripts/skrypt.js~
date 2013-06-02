@@ -52,11 +52,11 @@ var socket = io.connect('http://localhost:8000');
 	});
 
 $('.button').live('click', function (){
-	handleNick();
 	$('#mask , .login-popup').fadeOut(300 , function() {
 		$('#mask').remove();  
 	}); 
-return false;
+	handleNick();
+
 });
 
 function handleNick(){

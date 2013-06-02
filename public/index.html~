@@ -9,7 +9,8 @@
  <div class="center-wrapper">
 				<div class="cf-quiz-animate">
 					<div class="pa-quiz-shadow">
-						<div class="big-button-green"><a href="#login-box" class="login-window">Start</a></div>
+						<div class="big-button-green"><a href="#login-box" class="login-window">Sign In</a></div>
+						<div class="big-button-green"><a href="#login-box" class="login-window">Create Account</a></div>
 					</div>
 
 					<div class="cf-quiz-top">
@@ -41,23 +42,37 @@
 					</div>
 				</div>
 </div>
-		<!--
-		<aside id="nickname-popup" class="popup animate avgrund-popup">
-			<div class="title">Enter a nickname</div>
-			<div class="content">Please select a nickname, up to 15 characters</div>
-			<div class="input"><input type="text" maxlength="15" placeholder="nickname..." /></div>
-			<div class="big-button-green small begin">&mdash; Begin &mdash;</div>
-		</aside>-->
 
         <div id="login-box" class="login-popup">
         <a href="#" class="close"><img src="images/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
           <form method="post" class="signin" action="#">
                 <fieldset class="textbox">
             	<label class="username">
-                <span>Please enter your Nickname</span>
-                <input id="username" name="username" value="" type="text" autocomplete="on" placeholder="Nickname...">
+                <input id="username" name="username" type="text" autocomplete="on" placeholder="Nickname...">
+                </label>
+                <input id="password" name="password" type="password" placeholder="Password...">
                 </label>
                 <button class="button" type="button">Begin</button>                
+                </fieldset>
+          </form>
+	</div>
+	<div id="create-login-box" class="create-login-popup">
+        <a href="#" class="close"><img src="images/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
+          <form method="post" class="create-signin" action="#">
+                <fieldset class="textbox">
+            	<label class="username">
+                <span>Please enter your Nickname</span>
+                <input id="create-username" name="create-username" type="text" autocomplete="on" placeholder="Nickname...">
+                </label>
+		<label class="password">
+                <span>Please enter your Password</span>
+                <input id="create-password" name="create-password" type="password" autocomplete="on" placeholder="Password...">
+                </label>
+		<label class="email">
+                <span>Please enter your email</span>
+                <input id="create-email" name="create-email" type="text" autocomplete="on" placeholder="email...">
+                </label>
+                <button class="create-button" type="button">create</button>                
                 </fieldset>
           </form>
 	</div>

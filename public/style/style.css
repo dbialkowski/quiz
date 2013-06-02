@@ -54,7 +54,10 @@ width:1000px;height:500px;background-color:#eeeeee;margin-bottom:1em;margin-righ
 
 
 .cf-title .fl{
-	padding:5px 66px;
+	/*padding:5px 66px;*/
+	height:40px;
+	width:200px;
+	text-align:center;
 	display:inline-block;
 	font-weight:bold;
 	border: 1px solid #329345;
@@ -204,7 +207,7 @@ h2 {
 	z-index: 999;
 }
 
-.login-popup{
+.create-login-popup, .login-popup{
 	display:none;
 	background: #333;
 	padding: 10px; 	
@@ -231,22 +234,22 @@ fieldset {
 	border:none; 
 }
 
-form.signin .textbox label { 
+form.create-signin .textbox label,form.signin .textbox label { 
 	display:block; 
 	padding-bottom:7px; 
 }
 
-form.signin .textbox span { 
+form.create-signin .textbox span { 
 	display:block;
 }
 
-form.signin p, form.signin span { 
+form.create-signin p, form.create-signin span { 
 	color:#999; 
 	font-size:11px; 
 	line-height:18px;
 } 
 
-form.signin .textbox input { 
+form.create-signin .textbox input, form.signin .textbox input { 
 	background:#666666; 
 	border-bottom:1px solid #333;
 	border-left:1px solid #000;
@@ -263,8 +266,11 @@ form.signin .textbox input {
 
 form.signin input:-moz-placeholder { color:#bbb; text-shadow:0 0 2px #000; }
 form.signin input::-webkit-input-placeholder { color:#bbb; text-shadow:0 0 2px #000;  }
+form.create-signin input:-moz-placeholder { color:#bbb; text-shadow:0 0 2px #000; }
+form.create-signin input::-webkit-input-placeholder { color:#bbb; text-shadow:0 0 2px #000;  }
 
-.button { 
+
+.create-button, .button { 
 	background: -moz-linear-gradient(center top, #f3f3f3, #dddddd);
 	background: -webkit-gradient(linear, left top, left bottom, from(#f3f3f3), to(#dddddd));
 	background:  -o-linear-gradient(top, #f3f3f3, #dddddd);
@@ -284,6 +290,7 @@ form.signin input::-webkit-input-placeholder { color:#bbb; text-shadow:0 0 2px #
 }
 
 .button:hover { background:#ddd; }
+.create-button:hover { background:#ddd; }
 
 
 

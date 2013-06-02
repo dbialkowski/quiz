@@ -14,7 +14,6 @@ Members = new Object();
 		console.log('connection');
 		socket.on('connect', function(data){			
 			connect(socket, data);
-			console.log(data);
 		});
 	});
 
@@ -27,6 +26,12 @@ console.log(Members[socket.id]);
 io.sockets.emit('ready', { client: Members[socket.id] });
 }
 
+function getUsers(socketID){
+	var users = [];
+
+	if(socketID && socketID.length > 0){
+		socketsCount = socketID.lenght;
+}
 
 
 function randomID(){

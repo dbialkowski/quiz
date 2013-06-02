@@ -51,8 +51,24 @@ var socket = io.connect('http://localhost:8000');
 	return false;
 	});
 
+	$('a.close, #mask').live('click', function() { 
+	  $('#mask , .create-login-popup').fadeOut(300 , function() {
+		$('#mask').remove();  
+	}); 
+	return false;
+	});
+
 $('.button').live('click', function (){
 	$('#mask , .login-popup').fadeOut(300 , function() {
+		$('#mask').remove();  
+	}); 
+	handleNick();
+
+});
+
+
+$('.create-button').live('click', function (){
+	$('#mask , .create-login-popup').fadeOut(300 , function() {
 		$('#mask').remove();  
 	}); 
 	handleNick();
