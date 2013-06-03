@@ -32,7 +32,7 @@
 							</div>
 						</div>
 						<div class="fl-quiz-right">
-							<div class="quiz-clients">
+							<div class="quiz-clients" id="quiz-clients">
 								<div class="cf-title">
 									<div class="fl">Users</div>
 								</div>
@@ -58,19 +58,25 @@
 	</div>
 	<div id="create-login-box" class="create-login-popup">
         <a href="#" class="close"><img src="images/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
-          <form method="post" class="create-signin" action="#">
+          <form method="post" class="create-signin">
                 <fieldset class="textbox">
             	<label class="username">
                 <span>Please enter your Nickname</span>
-                <input id="create-username" name="create-username" type="text" autocomplete="on" placeholder="Nickname...">
+                <input id="create-username" name="create-username" type="text" autocomplete="on" >
                 </label>
 		<label class="password">
-                <span>Please enter your Password</span>
-                <input id="create-password" name="create-password" type="password" placeholder="Password...">
+                <span>Please enter your Password (min 6 sign)</span>
+		<div id="validate-pass"></div>                
+		<input id="create-password" name="create-password" type="password" minlength="6">
                 </label>
 		<label class="email">
                 <span>Please enter your email</span>
-                <input id="create-email" name="create-email" type="text" autocomplete="on" placeholder="email...">
+                <input id="create-email" name="create-email" type="text" autocomplete="on">
+                </label>
+		<label class="confirm-email">
+		<div id="validate-email"></div>
+                <span>Confirm your email</span>
+                <input id="confirm-email" name="confirm-email" type="text" >
                 </label>
                 <button class="create-button" type="button">create</button>                
                 </fieldset>

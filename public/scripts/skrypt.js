@@ -1,5 +1,6 @@
 /*jshint node: true, browser: true, jquery: true */
 /*global io: false */
+
 $(document).ready(function () {
     'use strict';
 
@@ -8,15 +9,11 @@ $(document).ready(function () {
 	    nickname = {},
 	    nicknameMy = {};
 
+	var username,password,email,emailConfirm,passLength;
+
 var socket = io.connect('http://localhost:8000');
 
-	var	tmplt = {
-			client: [
-				'<li>',
-					'<div class="fl nickname"><span class="icon"></span> ${nickname}</div>',
-				'</li>'
-			].join("")
-		};
+
 
  
 	$('a.login-window').click(function() {
@@ -68,12 +65,34 @@ $('.button').live('click', function (){
 
 
 $('.create-button').live('click', function (){
-	$('#mask , .create-login-popup').fadeOut(300 , function() {
-		$('#mask').remove();  
-	}); 
-	handleNick();
+	passLength=$('#create-password').attr('value');
+	email=$('#create-email').attr('value');
+	emailConfirm=$('#confirm-email').attr('value');
+	if(passLength.length < "6" ){document.getElementById("validate-pass").innerHTML='<p>Password must have min 6 sign</p>';}
+	else{
+	if (email != emailConfirm){
+		//$('#confirm-email').append('<li>Wrong email</li>');
+		document.getElementById("validate-email").innerHTML='<p>Wrong email</p>';
+	}
+	else{
+		$('#mask , .create-login-popup').fadeOut(300 , function() {
+			$('#mask').remove();  
+		}); 
+		createAccount();
+	}}
 
 });
+
+function createAccount(){
+	username=$('#create-username').attr('value');
+	password=$('#create-password').attr('value');
+	email=$('#create-email').attr('value');
+	emailConfirm=$('#confirm-email').attr('value');
+	
+socket.emit('user',{username: username, password: password, email: email});
+
+}
+
 
 function handleNick(){
 	 nickname = $('#username').attr('value');
@@ -84,33 +103,9 @@ function handleNick(){
 }
 
 socket.on('ready', function(data){
-		nickname = data.client.nickname;
-		showNickname(nickname,false,true);
+		nickname = data.username;
+		$('#quiz-clients ul').append('<li>'+nickname+'</li>');
 	});
-
-function showNickname(nickname,Me,Server){
-
-//	var $html = $.tmpl(tmplt.client, {
-//			nickname: nickname
-//		});
-
-	if(Me){
-		//$html.addClass('marker');
-		//$('#me ul').append('<li>'+nickname+'</li>');
-		document.getElementById("me").innerHTML='<li>'+nicknameMy+'</li>';
-	}
-	if(Server){
-		//$html.find('.nickname');
-		$('#people ul').append('<li>'+nickname+'</li>');
-	}
-	//$html.appendTo('#messages ul');
-}
-
-/*function addClass( element, name ) {
-		element.className = element.className.replace( /\s+$/gi, '' ) + ' ' + name;
-	}*/
-		
-
 
 
 });

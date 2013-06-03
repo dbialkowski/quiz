@@ -10,7 +10,7 @@
 				<div class="cf-quiz-animate">
 					<div class="pa-quiz-shadow">
 						<div class="big-button-green"><a href="#login-box" class="login-window">Sign In</a></div>
-						<div class="big-button-green"><a href="#login-box" class="login-window">Create Account</a></div>
+						<div class="big-button-green"><a href="#create-login-box" class="login-window">Create Account</a></div>
 					</div>
 
 					<div class="cf-quiz-top">
@@ -58,19 +58,25 @@
 	</div>
 	<div id="create-login-box" class="create-login-popup">
         <a href="#" class="close"><img src="images/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
-          <form method="post" class="create-signin" action="#">
+          <form method="post" class="create-signin">
                 <fieldset class="textbox">
             	<label class="username">
                 <span>Please enter your Nickname</span>
-                <input id="create-username" name="create-username" type="text" autocomplete="on" placeholder="Nickname...">
+                <input id="create-username" name="create-username" type="text" autocomplete="on" >
                 </label>
 		<label class="password">
-                <span>Please enter your Password</span>
-                <input id="create-password" name="create-password" type="password" autocomplete="on" placeholder="Password...">
+                <span>Please enter your Password (min 6 sign)</span>
+		<div id="validate-pass"></div>                
+		<input id="create-password" name="create-password" type="password" minlength="6">
                 </label>
 		<label class="email">
                 <span>Please enter your email</span>
-                <input id="create-email" name="create-email" type="text" autocomplete="on" placeholder="email...">
+                <input id="create-email" name="create-email" type="text" autocomplete="on">
+                </label>
+		<label class="confirm-email">
+		<div id="validate-email"></div>
+                <span>Confirm your email</span>
+                <input id="confirm-email" name="confirm-email" type="text" >
                 </label>
                 <button class="create-button" type="button">create</button>                
                 </fieldset>
