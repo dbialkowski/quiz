@@ -5,7 +5,7 @@ $(document).ready(function () {
     'use strict';
 
 
-	var userID,nickname,nicknameID;
+	var userID=null,nickname,nicknameID;
 	var username,password,email,emailConfirm,passLength;
 
 var socket = io.connect('http://localhost:8000');
@@ -86,7 +86,9 @@ function createAccount(){
 	password=$('#create-password').attr('value');
 	email=$('#create-email').attr('value');
 	emailConfirm=$('#confirm-email').attr('value');
-	userID=randomID();
+	if(userID === null){	
+		userID=randomID();
+	}
 	$('#komunikat').append('<div id='+userID+'></div>');
 socket.emit('user',{username: username, password: password, email: email, userID: userID});
 
@@ -96,20 +98,44 @@ socket.emit('user',{username: username, password: password, email: email, userID
 function handleNick(){
 	 username = $('#username').attr('value');
 	 password = $('#password').attr('value');
-	socket.emit('connect', { username: username, password: password });
+	if(userID === null){	
+		userID=randomID();
+	}
+	 $('#komunikat').append('<div id='+userID+'></div>');
+	socket.emit('connect', { username: username, password: password,userID: userID});
 }
 
 socket.on('ready', function(data){
 		nickname = data.username;
-		nicknameID =
-		$('#komunikat').text('The User: '+nickname+' Has Been Created. Now you can Sign In!');
-	});/*
-socket.on('notready', function(data){
-		nickname = data.username;
-		$('#komunikat p').text('The User: '+nickname+' Excist. Please change your nickname');
+		if( userID === data.userID){
+			$('#'+nicknameID).text('The User: '+nickname+' Has Been Created. Now you can Sign In!');
+		}
 	});
 
-*/
+socket.on('notready', function(data){
+		nickname = data.username;
+		if( userID === data.userID){
+			$('#'+userID).text('The User: '+nickname+' Excist. Please change your nickname');
+		}
+	});
+
+socket.on('notloged', function(data){
+		
+		if(userID === data.userID){
+			$('#'+userID).text('Wrong nickname or password');
+		}
+	});
+
+socket.on('loged', function(data){
+		nickname = data.username;
+		nicknameID = data.realID;
+		
+		if( userID === data.userID){
+			$('#'+userID).text('Hello '+nickname+'!');
+		}
+	});
+
+
 function randomID(){
 		return (((1 + Math.random()) * 0x10000) | 0).toString(16);
 	}
