@@ -1,0 +1,19 @@
+/*
+
+exports.login = function(req, res) {
+
+	$(document).ready(function () {
+    	'use strict';
+	$('#komunikat p').text(req.info);	
+	});
+}
+
+exports.create = function(req){
+	console.log("we are in quiz - exports.create");
+  $(document).ready(function () {
+  'use strict';
+		
+	$('#komunikat p').text('The User: '+req.info+' Excist. Please change your nickname');
+
+  });
+};*/

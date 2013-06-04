@@ -234,16 +234,16 @@ fieldset {
 	border:none; 
 }
 
-form.create-signin .textbox,form.signin .textbox label { 
+form.create-signin .textbox label,form.signin .textbox label { 
 	display:block; 
 	padding-bottom:7px; 
 }
 
-form.create-signin .textbox,form.signin .textbox span { 
+form.create-signin .textbox span { 
 	display:block;
 }
 
-form.create-signin p, form.create-signin span, form.signin p, form.signin span { 
+form.create-signin p, form.create-signin span { 
 	color:#999; 
 	font-size:11px; 
 	line-height:18px;
@@ -291,7 +291,26 @@ form.create-signin input::-webkit-input-placeholder { color:#bbb; text-shadow:0 
 
 .button:hover { background:#ddd; }
 .create-button:hover { background:#ddd; }
+.komunikat { background: -moz-linear-gradient(center top, #f3f3f3, #dddddd);
+	background: -webkit-gradient(linear, left top, left bottom, from(#f3f3f3), to(#dddddd));
+	background:  -o-linear-gradient(top, #f3f3f3, #dddddd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f3f3f3', EndColorStr='#dddddd');
+	border-color:#000; 
+	border-width:1px;
+	border-radius:4px 4px 4px 4px;
+	-moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+	color:#333;
+	cursor:pointer;
+	display:inline-block;
+	padding:6px 110px 4px;
+	margin-top:10px;
+	font:12px; 
+	width:214px;}
 
+.komunikat p a{
+	color:green;
+}
 
 
 

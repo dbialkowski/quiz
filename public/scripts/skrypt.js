@@ -5,10 +5,7 @@ $(document).ready(function () {
     'use strict';
 
 
-	var nicknameID = null,
-	    nickname = {},
-	    nicknameMy = {};
-
+	var userID,nickname,nicknameID;
 	var username,password,email,emailConfirm,passLength;
 
 var socket = io.connect('http://localhost:8000');
@@ -68,19 +65,20 @@ $('.create-button').live('click', function (){
 	passLength=$('#create-password').attr('value');
 	email=$('#create-email').attr('value');
 	emailConfirm=$('#confirm-email').attr('value');
-	if(passLength.length < "6" ){document.getElementById("validate-pass").innerHTML='<p>Password must have min 6 sign</p>';}
-	else{
-	if (email != emailConfirm){
-		//$('#confirm-email').append('<li>Wrong email</li>');
-		document.getElementById("validate-email").innerHTML='<p>Wrong email</p>';
+	if(passLength.length < "6" ){
+		document.getElementById("validate-pass").innerHTML='<p>Password must have min 6 sign</p>';
 	}
 	else{
-		$('#mask , .create-login-popup').fadeOut(300 , function() {
-			$('#mask').remove();  
-		}); 
-		createAccount();
-	}}
-
+		if (email != emailConfirm){
+			document.getElementById("validate-email").innerHTML='<p>Wrong email</p>';
+		}
+		else{
+			$('#mask , .create-login-popup').fadeOut(300 , function() {
+				$('#mask').remove();  
+			}); 
+			createAccount();
+		}
+	}
 });
 
 function createAccount(){
@@ -88,24 +86,34 @@ function createAccount(){
 	password=$('#create-password').attr('value');
 	email=$('#create-email').attr('value');
 	emailConfirm=$('#confirm-email').attr('value');
-	
-socket.emit('user',{username: username, password: password, email: email});
+	userID=randomID();
+	$('#komunikat').append('<div id='+userID+'></div>');
+socket.emit('user',{username: username, password: password, email: email, userID: userID});
 
 }
 
 
 function handleNick(){
-	 nickname = $('#username').attr('value');
-	 nicknameMy = $('#username').attr('value');
-	socket.emit('connect', { nickname: nickname });
-
-	showNickname(nickname,true,false);
+	 username = $('#username').attr('value');
+	 password = $('#password').attr('value');
+	socket.emit('connect', { username: username, password: password });
 }
 
 socket.on('ready', function(data){
 		nickname = data.username;
-		$('#quiz-clients ul').append('<li>'+nickname+'</li>');
+		nicknameID = data.userID;
+		if( nicknameID === userID){
+			$('#'+nicknameID).text('The User: '+nickname+' Has Been Created. Now you can Sign In!');
+		}
+	});
+/*
+socket.on('notready', function(data){
+		nickname = data.username;
+		$('#komunikat p').text('The User: '+nickname+' Excist. Please change your nickname');
 	});
 
-
+*/
+function randomID(){
+		return (((1 + Math.random()) * 0x10000) | 0).toString(16);
+	}
 });

@@ -1,35 +1,19 @@
-/*
-var mongo = require('mongodb');
 
-var db = new mongo.Db('Users', new mongo.Server('localhost', 27017), {safe: true});
 
-db.open(function (err,db) {
-  if(!err) {
-    console.log("We are connected");
-  }
-	else {
-	console.log("We aren't connected" + err);
-}
-});
+exports.login = function(req, res) {
 
-exports.index = function(req, res) {
- res.render('index');
-};
-
-exports.index_post_handler = function(req, res) {
-console.log(req.createUsername);
-
-	db.collection('users',function(err, collection){					
-	      collection.insert({"username":req.createUsername,"password":req.createPassword,"email":req.createEmail});
+	$(document).ready(function () {
+    	'use strict';
+	$('#komunikat p').text(req.info);	
 	});
-res.render('index');
+}
+
+exports.create = function(req){
+	console.log("we are in quiz - exports.create");
+  $(document).ready(function () {
+  'use strict';
+		
+	$('#komunikat p').text('The User: '+req.info+' Excist. Please change your nickname');
+
+  });
 };
-
-
-  db.collection('testcol', function (err, coll) {
-        coll.insert({"imię": zmienna, "nazwisko": "Bratny"}, function (err) {
-           
-            coll.find().toArray(function (err, items) {
-                console.log(items);
-                db.close();
-            });*/
