@@ -55,7 +55,8 @@ var socket = io.connect('http://localhost:8000');
 $('.button').live('click', function (){
 	$('#mask , .login-popup').fadeOut(300 , function() {
 		$('#mask').remove();  
-	}); 
+	});
+	$('#'+userID).fadeOut("fast"); 
 	handleNick();
 
 });
@@ -177,29 +178,33 @@ socket.on('notloged', function(data){
 			$('#'+userID).text('Wrong nickname or password');
 		}
 	});
-
+			
 socket.on('loged', function(data){
 		nicknameLogIn = data.username;
 		nicknameID = data.realID;
 		createdID = data.createdID
 		if(userID === data.userID){
-			$('#komunikat').append(' <div class="big-button-green"><a href="#start" class="start">Start!</a></div>  <a> Hello '+nicknameLogIn+'!</a>');
+			
+			$('#komunikat').append('<div class="big-button-green"><a href="#start" class="start">Start!</a></div>  <a> Hello '+nicknameLogIn+'!</a>');
 		}
-		$('#quiz-clients ul').append('<li>'+nicknameLogIn+'</li>');
-	
+		$('#userList').append('<div class="Member" id="Member">'+nicknameLogIn+'</div>');
+		$('#score').append('<span class='+nicknameID+' id='+nicknameID+'></span>');
+		
 });
 
 	$('.answer1').live('click',function (){
 	    if(answ !== null){
 		if(tit1 === answ){
-			score += 1;
+			score += 10;
 			setStyle('answer1', {'background':'#369e4a'});
+			$('#'+nicknameID).text(score);
 			$('.answer2').fadeOut("slow");
 			$('.answer3').fadeOut("slow");
 			$('.answer4').fadeOut("slow");
 		}
 		else{
 			setStyle('answer1', {'background':'red'});
+			$('#'+nicknameID).text(score);
 			$('.answer2').fadeOut("slow");
 			$('.answer3').fadeOut("slow");
 			$('.answer4').fadeOut("slow");
@@ -211,14 +216,16 @@ socket.on('loged', function(data){
 
 	    if(answ !== null){
 	 	if(tit2 === answ){
-			score += 1;
+			score += 10;
 			setStyle('answer2', {'background':'#369e4a'});
+			$('#'+nicknameID).text(score);
 			$('.answer1').fadeOut("slow");
 			$('.answer3').fadeOut("slow");
 			$('.answer4').fadeOut("slow");
 		}
 		else{
 			setStyle('answer2', {'background':'red'});
+			$('#'+nicknameID).text(score);
 			$('.answer1').fadeOut("slow");
 			$('.answer3').fadeOut("slow");
 			$('.answer4').fadeOut("slow");
@@ -230,14 +237,16 @@ socket.on('loged', function(data){
 
 	    if(answ !== null){
 	 	if(tit3 === answ){
-			score += 1;
+			score += 10;
 			setStyle('answer3', {'background':'#369e4a'});
+			$('#'+nicknameID).text(score);
 			$('.answer1').fadeOut("slow");
 			$('.answer2').fadeOut("slow");
 			$('.answer4').fadeOut("slow");
 		}
 		else{
 			setStyle('answer3', {'background':'red'});
+			$('#'+nicknameID).text(score);
 			$('.answer1').fadeOut("slow");
 			$('.answer2').fadeOut("slow");
 			$('.answer4').fadeOut("slow");
@@ -249,14 +258,16 @@ socket.on('loged', function(data){
 		
 	    if(answ !== null){
 	 	if(tit4 === answ){
-			score += 1;
+			score += 10;
 			setStyle('answer4', {'background':'#369e4a'});
+			$('#'+nicknameID).text(score);
 			$('.answer1').fadeOut("slow");
 			$('.answer2').fadeOut("slow");
 			$('.answer3').fadeOut("slow");
 		}
 		else{
 			setStyle('answer4', {'background':'red'});
+			$('#'+nicknameID).text(score);
 			$('.answer1').fadeOut("slow");
 			$('.answer2').fadeOut("slow");
 			$('.answer3').fadeOut("slow");

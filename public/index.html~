@@ -12,24 +12,25 @@
 						<div class="big-button-green" id="button1"><a href="#login-box" class="login-window">Sign In</a></div>
 						<div class="big-button-green" id="button2"><a href="#create-login-box" class="login-window">Create Account</a></div>				
 						<div class="komunikat" id="komunikat"></div>
+						<div class="score" id="score"><a>Score:</a><span class="points" id="points"></span></div>
 					</div>
 
 					<div class="cf-quiz-top">
 						<div class="fl-quiz-left">
 							<div class="questions" id="questions">
-								<p>Vavamuffin: ...Regenerrator Kocha Jah Jah, Vavamuffin Wielbi Pana...</p>
+								<p></p>
 							</div>
 							<div class="answer1" id="answer1">
-								<p>Wektor</p>
+								<p></p>
 							</div>
 							<div class="answer2" id="answer2">
-								<p>Bless</p>
+								<p></p>
 							</div>
 							<div class="answer3" id="answer3">
-								<p>Sekta</p>
+								<p></p>
 							</div>
 							<div class="answer4" id="answer4">
-								<p>Paramonov</p>
+								<p></p>
 							</div>
 						</div>
 						<div class="fl-quiz-right">
@@ -37,7 +38,7 @@
 								<div class="cf-title">
 									<div class="fl">Users</div>
 								</div>
-								<ul></ul>
+								<div class="userList" id="userList"></div>
 							</div>
 						</div>
 					</div>
