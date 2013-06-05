@@ -125,6 +125,12 @@ socket.on('random',function(data){
 	var i;
 	for(i=0; i < createdID.length; i+=1){
 		if( userID === createdID[i]){
+
+			$('.answer1').show();
+			$('.answer2').show();
+			$('.answer3').show();
+			$('.answer4').show();			
+			
 			$('#questions p').text(words);
 			$('#answer1 p').text(tit1);
 			$('#answer2 p').text(tit2);
@@ -166,8 +172,8 @@ socket.on('loged', function(data){
 		createdID = data.createdID
 		if(userID === data.userID){
 			$('#komunikat').append(' <div class="big-button-green"><a href="#start" class="start">Start!</a></div>  <a> Hello '+nicknameLogIn+'!</a>');
-			$('#quiz-clients ul').append('<li>'+nicknameLogIn+'</li>');
 		}
+		$('#quiz-clients ul').append('<li>'+nicknameLogIn+'</li>');
 	
 });
 
@@ -176,9 +182,15 @@ socket.on('loged', function(data){
 		if(tit1 === answ){
 			score += 1;
 			setStyle('answer1', {'background':'#369e4a'});
+			$('.answer2').hover("slow");
+			$('.answer3').hover("slow");
+			$('.answer4').hover("slow");
 		}
 		else{
 			setStyle('answer1', {'background':'red'});
+			$('.answer2').hover("slow");
+			$('.answer3').hover("slow");
+			$('.answer4').hover("slow");
 		}
 	    }
 	}); 
@@ -189,9 +201,15 @@ socket.on('loged', function(data){
 	 	if(tit2 === answ){
 			score += 1;
 			setStyle('answer2', {'background':'#369e4a'});
+			$('.answer1').hover("slow");
+			$('.answer3').hover("slow");
+			$('.answer4').hover("slow");
 		}
 		else{
 			setStyle('answer2', {'background':'red'});
+			$('.answer1').hover("slow");
+			$('.answer3').hover("slow");
+			$('.answer4').hover("slow");
 		}
 	    }	 	
 	}); 
@@ -202,9 +220,15 @@ socket.on('loged', function(data){
 	 	if(tit3 === answ){
 			score += 1;
 			setStyle('answer3', {'background':'#369e4a'});
+			$('.answer1').hover("slow");
+			$('.answer2').hover("slow");
+			$('.answer4').hover("slow");
 		}
 		else{
 			setStyle('answer3', {'background':'red'});
+			$('.answer1').hover("slow");
+			$('.answer2').hover("slow");
+			$('.answer4').hover("slow");
 		}
 	    }	 	
 	}); 
@@ -215,9 +239,15 @@ socket.on('loged', function(data){
 	 	if(tit4 === answ){
 			score += 1;
 			setStyle('answer4', {'background':'#369e4a'});
+			$('.answer1').fadeOut("slow");
+			$('.answer2').fadeOut("slow");
+			$('.answer3').fadeOut("slow");
 		}
 		else{
 			setStyle('answer4', {'background':'red'});
+			$('.answer1').fadeOut("slow");
+			$('.answer2').fadeOut("slow");
+			$('.answer3').fadeOut("slow");
 		}
 	    }	 	
 	}); 

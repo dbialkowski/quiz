@@ -99,9 +99,10 @@ width:1000px;height:500px;background-color:#eeeeee;margin-bottom:1em;margin-righ
 
 .answer1,.answer2,.answer3,.answer4{
 	/*padding:60px 160px;*/
+	position: absolute;
 	height:145px;
 	width:360px;
-	display:inline-block;
+	display:block;
 	text-align:center;
 	font-weight:bold;
 	border: 1px solid #808080;
@@ -129,32 +130,32 @@ width:1000px;height:500px;background-color:#eeeeee;margin-bottom:1em;margin-righ
 }
 
 .questions{
-	position: relative;
-	top: 20px;
-	left: 20px;
+	position: absolute;
+	top: 70px;
+	left: 170px;
 }
 
 .answer1{
-position: relative;
-	left: 30px; 
-	top: 40px;	
+
+	left: 185px; 
+	top: 220px;	
 }
 .answer2{
-position: relative;
-	left: 400px; 
-	top: -107px;	
+
+	left: 560px; 
+	top: 220px;	
 	
 }
 .answer3{
-position: relative;
-	left: 30px; 
-	top: -90px;	
+
+	left: 185px; 
+	top: 380px;	
 	
 }
 .answer4{
-position: relative;
-	left: 400px; 
-	top: -237px;	
+
+	left: 560px; 
+	top: 380px;	
 	
 }
 

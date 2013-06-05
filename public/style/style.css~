@@ -99,22 +99,18 @@ width:1000px;height:500px;background-color:#eeeeee;margin-bottom:1em;margin-righ
 
 .answer1,.answer2,.answer3,.answer4{
 	/*padding:60px 160px;*/
+	position: absolute;
 	height:145px;
 	width:360px;
-	display:inline-block;
+	display:block;
 	text-align:center;
 	font-weight:bold;
 	border: 1px solid #808080;
 	font-size: 20px;
 	color: #blue !important;
-	background-color: #fffff0;
+	background-color: #FFE4B5;
 	border-radius:30px;
 	cursor:pointer;
-	background-image: url(/images/noise.png),-webkit-linear-gradient(top, #fffff0, #f0e68c);
-	background-image: url(/images/noise.png),-moz-linear-gradient(top, #fffff0, #f0e68c);
-	background-image: url(/images/noise.png),-o-linear-gradient(top, #fffff0, #f0e68c);
-	background-image: url(/images/noise.png),-ms-linear-gradient(top, #fffff0, #f0e68c);
-	background-image: url(/images/noise.png),linear-gradient(top, #fffff0, #f0e68c);
 	background-position: 50% 50%;
 	text-shadow: 0 1px 1px #2c803c;
 }
@@ -134,32 +130,32 @@ width:1000px;height:500px;background-color:#eeeeee;margin-bottom:1em;margin-righ
 }
 
 .questions{
-	position: relative;
-	top: 20px;
-	left: 20px;
+	position: absolute;
+	top: 70px;
+	left: 170px;
 }
 
 .answer1{
-position: relative;
-	left: 30px; 
-	top: 40px;	
+
+	left: 170px; 
+	top: 220px;	
 }
 .answer2{
-position: relative;
-	left: 400px; 
-	top: -107px;	
+
+	left: 575px; 
+	top: 220px;	
 	
 }
 .answer3{
-position: relative;
-	left: 30px; 
-	top: -90px;	
+
+	left: 170px; 
+	top: 380px;	
 	
 }
 .answer4{
-position: relative;
-	left: 400px; 
-	top: -237px;	
+
+	left: 575px; 
+	top: 380px;	
 	
 }
 
