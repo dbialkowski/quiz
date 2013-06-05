@@ -107,23 +107,27 @@ width:1000px;height:500px;background-color:#eeeeee;margin-bottom:1em;margin-righ
 	border: 1px solid #808080;
 	font-size: 20px;
 	color: #blue !important;
-	background-color: #fffff0;
+	background-color: #FFE4B5;
 	border-radius:30px;
 	cursor:pointer;
-	background-image: url(/images/noise.png),-webkit-linear-gradient(top, #fffff0, #f0e68c);
-	background-image: url(/images/noise.png),-moz-linear-gradient(top, #fffff0, #f0e68c);
-	background-image: url(/images/noise.png),-o-linear-gradient(top, #fffff0, #f0e68c);
-	background-image: url(/images/noise.png),-ms-linear-gradient(top, #fffff0, #f0e68c);
-	background-image: url(/images/noise.png),linear-gradient(top, #fffff0, #f0e68c);
 	background-position: 50% 50%;
 	text-shadow: 0 1px 1px #2c803c;
 }
-.answer1:active,.answer2:active,.answer3:active,.answer4:active{
+
+.goodAnswer:active{
 	border-color: #256d33;
-	background: #ee82ee;
+	background: #369e4a;
 	color: rgba(255,255,255,0.8) !important;
 	text-shadow: 0 1px 0 rgba(0,0,0,0.3) !important;
 }
+
+.badAnswer:active{
+	border-color: #256d33;
+	background: red;
+	color: rgba(255,255,255,0.8) !important;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.3) !important;
+}
+
 .questions{
 	position: relative;
 	top: 20px;

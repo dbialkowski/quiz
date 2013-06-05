@@ -6,8 +6,8 @@ $(document).ready(function () {
 
 
 	var userID=null,nickname,nicknameID;
-	var username,password,email,emailConfirm,passLength;
-	var lp,words,tit1,tit2,tit3,tit4,answ;
+	var username,password,email,emailConfirm,passLength,nicknameLogIn=null;
+	var lp,words,tit1,tit2,tit3,tit4,answ=null,score=0;
 var socket = io.connect('http://localhost:8000');
 
 
@@ -112,6 +112,7 @@ function handleNick(){
 	socket.emit('connect', { username: username, password: password,userID: userID});
 }
 
+
 socket.on('random',function(data){
 	lp=data.lp;
 	words=data.words;
@@ -120,13 +121,17 @@ socket.on('random',function(data){
 	tit3=data.tit3;
 	tit4=data.tit4;
 	answ=data.answ;
-
+if(userID === data.userID){
 	$('#questions p').text(words);
 	$('#answer1 p').text(tit1);
 	$('#answer2 p').text(tit2);
 	$('#answer3 p').text(tit3);
 	$('#answer4 p').text(tit4);
-
+	setStyle('answer1', {'background':'#FFE4B5','color': '#blue !important','text-shadow': '0 1px 1px #2c803c'});
+	setStyle('answer2', {'background':'#FFE4B5','color': '#blue !important','text-shadow': '0 1px 1px #2c803c'});
+	setStyle('answer3', {'background':'#FFE4B5','color': '#blue !important','text-shadow': '0 1px 1px #2c803c'});
+	setStyle('answer4', {'background':'#FFE4B5','color': '#blue !important','text-shadow': '0 1px 1px #2c803c'});
+}
 });
 
 socket.on('ready', function(data){
@@ -151,18 +156,79 @@ socket.on('notloged', function(data){
 	});
 
 socket.on('loged', function(data){
-		nickname = data.username;
+		nicknameLogIn = data.username;
 		nicknameID = data.realID;
 		
 		if( userID === data.userID){
-			$('#komunikat').append(' <div class="big-button-green"><a href="#start" class="start">Start!</a></div>  <a> Hello '+nickname+'!</a>');
+			$('#komunikat').append(' <div class="big-button-green"><a href="#start" class="start">Start!</a></div>  <a> Hello '+nicknameLogIn+'!</a>');
 		}
-		
-		$('#quiz-clients ul').append('<li>'+nickname+'</li>');
+
+			$('#quiz-clients ul').append('<li>'+nicknameLogIn+'</li>');
+	
 	});
+
+	$('.answer1').live('click',function (){
+	    if(answ !== null){
+		if(tit1 === answ){
+			score += 1;
+			setStyle('answer1', {'background':'#369e4a'});
+		}
+		else{
+			setStyle('answer1', {'background':'red'});
+		}
+	    }
+	}); 
+
+	$('.answer2').live('click',function (){
+
+	    if(answ !== null){
+	 	if(tit2 === answ){
+			score += 1;
+			setStyle('answer2', {'background':'#369e4a'});
+		}
+		else{
+			setStyle('answer2', {'background':'red'});
+		}
+	    }	 	
+	}); 
+
+	$('.answer3').live('click',function (){
+
+	    if(answ !== null){
+	 	if(tit3 === answ){
+			score += 1;
+			setStyle('answer3', {'background':'#369e4a'});
+		}
+		else{
+			setStyle('answer3', {'background':'red'});
+		}
+	    }	 	
+	}); 
+
+	$('.answer4').live('click',function (){
+		
+	    if(answ !== null){
+	 	if(tit4 === answ){
+			score += 1;
+			setStyle('answer4', {'background':'#369e4a'});
+		}
+		else{
+			setStyle('answer4', {'background':'red'});
+		}
+	    }	 	
+	}); 
 
 
 function randomID(){
 		return (((1 + Math.random()) * 0x10000) | 0).toString(16);
 	}
+
+function setStyle( objId, propertyObject ){
+	 var elem = document.getElementById(objId);
+	 for (var property in propertyObject){
+   		 elem.style[property] = propertyObject[property];
+	}
+}
+
+
 });
