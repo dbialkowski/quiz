@@ -2,8 +2,6 @@ var socketio = require('socket.io');
 
 exports.listen = function(server) {
 
-var mongo = require('mongodb');
-
 var db = new mongo.Db('Users', new mongo.Server('localhost', 27017), {safe: true});
 
 db.open(function (err,db) {
@@ -23,14 +21,28 @@ db.open(function (err,db) {
 		console.log('connection');
 		socket.on('connect', function(data){			
 			connect(socket, data);
-			console.log("serwer connect");
 		});
 		
 		socket.on('user', function (data){
 			createuser(socket,data);
 		});
+		
+		socket.on('start', function (data){
+			start(socket,data);
+		});
 	});
 
+function start(socket,data){
+var userID=data.userID;
+	var username,email;
+	db.collection('users', function (err,collection) {
+		collection.random().toArray(function(err,users){
+				//io.sockets.emit('random', { username: users.username, email: users.email});
+			
+		});
+	});
+
+}
 
 function connect(socket,data){
 var username=data.username, password=data.password, userID=data.userID;
@@ -49,7 +61,7 @@ var username=data.username, password=data.password, userID=data.userID;
 				io.sockets.emit('notloged', {userID: userID});	
 			} 
 			else{
-				io.sockets.emit('loged', { username: username, userID: ID});
+				io.sockets.emit('loged', { username: username, userID: userID, realID: ID});
 			}
 		});
 	});

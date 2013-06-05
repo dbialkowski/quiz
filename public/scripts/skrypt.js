@@ -81,6 +81,13 @@ $('.create-button').live('click', function (){
 	}
 });
 
+
+$('a.start').click(function() {
+
+	socket.emit('start', {userID: userID});
+
+}
+
 function createAccount(){
 	username=$('#create-username').attr('value');
 	password=$('#create-password').attr('value');
@@ -131,8 +138,9 @@ socket.on('loged', function(data){
 		nicknameID = data.realID;
 		
 		if( userID === data.userID){
-			$('#'+userID).text('Hello '+nickname+'!');
+			$('#komunikat').append(' <div class="big-button-green"><a href="#start" class="start">Start!</a></div>  <a> Hello '+nickname+'!</a>');
 		}
+		
 		$('#quiz-clients ul').append('<li>'+nickname+'</li>');
 	});
 
