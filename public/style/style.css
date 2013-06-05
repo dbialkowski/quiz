@@ -76,12 +76,15 @@ width:1000px;height:500px;background-color:#eeeeee;margin-bottom:1em;margin-righ
 }
 
 .questions{
-	padding:60px 280px;
+	/*padding:60px 280px;*/
+	height:120px;
+	width:760px;	
 	display:inline-block;
+	text-align:center;
 	font-weight:bold;
 	border: 1px solid #329345;
 	font-size: 28px;
-	color: #fff !important;
+	color: black !important;
 	background-color: #c0c0c0;
 	border-radius:30px;
 	cursor:pointer;
@@ -95,12 +98,15 @@ width:1000px;height:500px;background-color:#eeeeee;margin-bottom:1em;margin-righ
 }
 
 .answer1,.answer2,.answer3,.answer4{
-	padding:60px 160px;
+	/*padding:60px 160px;*/
+	height:145px;
+	width:360px;
 	display:inline-block;
+	text-align:center;
 	font-weight:bold;
 	border: 1px solid #808080;
-	font-size: 28px;
-	color: #fff !important;
+	font-size: 20px;
+	color: #blue !important;
 	background-color: #fffff0;
 	border-radius:30px;
 	cursor:pointer;
@@ -121,30 +127,30 @@ width:1000px;height:500px;background-color:#eeeeee;margin-bottom:1em;margin-righ
 .questions{
 	position: relative;
 	top: 20px;
-	left: 100px;
+	left: 20px;
 }
 
 .answer1{
 position: relative;
 	left: 30px; 
-	top: 30px;	
+	top: 40px;	
 }
 .answer2{
 position: relative;
 	left: 400px; 
-	top: -125px;	
+	top: -107px;	
 	
 }
 .answer3{
 position: relative;
 	left: 30px; 
-	top: -125px;	
+	top: -90px;	
 	
 }
 .answer4{
 position: relative;
 	left: 400px; 
-	top: -280px;	
+	top: -237px;	
 	
 }
 

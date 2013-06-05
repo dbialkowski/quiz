@@ -7,7 +7,7 @@ $(document).ready(function () {
 
 	var userID=null,nickname,nicknameID;
 	var username,password,email,emailConfirm,passLength;
-
+	var lp,words,tit1,tit2,tit3,tit4,answ;
 var socket = io.connect('http://localhost:8000');
 
 
@@ -82,11 +82,11 @@ $('.create-button').live('click', function (){
 });
 
 
-$('a.start').click(function() {
+$('a.start').live('click', function() {
 
 	socket.emit('start', {userID: userID});
 
-}
+});
 
 function createAccount(){
 	username=$('#create-username').attr('value');
@@ -111,6 +111,23 @@ function handleNick(){
 	 $('#komunikat').append('<div id='+userID+'></div>');
 	socket.emit('connect', { username: username, password: password,userID: userID});
 }
+
+socket.on('random',function(data){
+	lp=data.lp;
+	words=data.words;
+	tit1=data.tit1;
+	tit2=data.tit2;
+	tit3=data.tit3;
+	tit4=data.tit4;
+	answ=data.answ;
+
+	$('#questions p').text(words);
+	$('#answer1 p').text(tit1);
+	$('#answer2 p').text(tit2);
+	$('#answer3 p').text(tit3);
+	$('#answer4 p').text(tit4);
+
+});
 
 socket.on('ready', function(data){
 		nickname = data.username;

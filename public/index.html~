@@ -9,27 +9,27 @@
  <div class="center-wrapper">
 				<div class="cf-quiz-animate">
 					<div class="pa-quiz-shadow">
-						<div class="big-button-green"><a href="#login-box" class="login-window">Sign In</a></div>
-						<div class="big-button-green"><a href="#create-login-box" class="login-window">Create Account</a></div>				
+						<div class="big-button-green" id="button1"><a href="#login-box" class="login-window">Sign In</a></div>
+						<div class="big-button-green" id="button2"><a href="#create-login-box" class="login-window">Create Account</a></div>				
 						<div class="komunikat" id="komunikat"></div>
 					</div>
 
 					<div class="cf-quiz-top">
 						<div class="fl-quiz-left">
-							<div class="questions">
-								<ul></ul>
+							<div class="questions" id="questions">
+								<p>Vavamuffin: ...Regenerrator Kocha Jah Jah, Vavamuffin Wielbi Pana...</p>
 							</div>
-							<div class="answer1">
-								<ul></ul>
+							<div class="answer1" id="answer1">
+								<p>Wektor</p>
 							</div>
-							<div class="answer2">
-								<ul></ul>
+							<div class="answer2" id="answer2">
+								<p>Bless</p>
 							</div>
-							<div class="answer3">
-								<ul></ul>
+							<div class="answer3" id="answer3">
+								<p>Sekta</p>
 							</div>
-							<div class="answer4">
-								<ul></ul>
+							<div class="answer4" id="answer4">
+								<p>Paramonov</p>
 							</div>
 						</div>
 						<div class="fl-quiz-right">
