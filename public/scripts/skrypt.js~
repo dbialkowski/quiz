@@ -108,7 +108,7 @@ function handleNick(){
 socket.on('ready', function(data){
 		nickname = data.username;
 		if( userID === data.userID){
-			$('#'+nicknameID).text('The User: '+nickname+' Has Been Created. Now you can Sign In!');
+			$('#'+userID).text('The User: '+nickname+' Has Been Created. Now you can Sign In!');
 		}
 	});
 
@@ -133,6 +133,7 @@ socket.on('loged', function(data){
 		if( userID === data.userID){
 			$('#'+userID).text('Hello '+nickname+'!');
 		}
+		$('#quiz-clients ul').append(nickname);
 	});
 
 

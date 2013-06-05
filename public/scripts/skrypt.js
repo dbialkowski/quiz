@@ -133,6 +133,7 @@ socket.on('loged', function(data){
 		if( userID === data.userID){
 			$('#'+userID).text('Hello '+nickname+'!');
 		}
+		$('#quiz-clients ul').append('<li>'+nickname+'</li>');
 	});
 
 
