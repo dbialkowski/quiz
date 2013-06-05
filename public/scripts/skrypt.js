@@ -4,7 +4,7 @@
 $(document).ready(function () {
     'use strict';
 
-
+	var createdID = [];
 	var userID=null,nickname,nicknameID;
 	var username,password,email,emailConfirm,passLength,nicknameLogIn=null;
 	var lp,words,tit1,tit2,tit3,tit4,answ=null,score=0;
@@ -121,17 +121,22 @@ socket.on('random',function(data){
 	tit3=data.tit3;
 	tit4=data.tit4;
 	answ=data.answ;
-if(userID === data.userID){
-	$('#questions p').text(words);
-	$('#answer1 p').text(tit1);
-	$('#answer2 p').text(tit2);
-	$('#answer3 p').text(tit3);
-	$('#answer4 p').text(tit4);
-	setStyle('answer1', {'background':'#FFE4B5','color': '#blue !important','text-shadow': '0 1px 1px #2c803c'});
-	setStyle('answer2', {'background':'#FFE4B5','color': '#blue !important','text-shadow': '0 1px 1px #2c803c'});
-	setStyle('answer3', {'background':'#FFE4B5','color': '#blue !important','text-shadow': '0 1px 1px #2c803c'});
-	setStyle('answer4', {'background':'#FFE4B5','color': '#blue !important','text-shadow': '0 1px 1px #2c803c'});
-}
+
+	var i;
+	for(i=0; i < createdID.length; i+=1){
+		if( userID === createdID[i]){
+			$('#questions p').text(words);
+			$('#answer1 p').text(tit1);
+			$('#answer2 p').text(tit2);
+			$('#answer3 p').text(tit3);
+			$('#answer4 p').text(tit4);
+		
+			setStyle('answer1', {'background':'#FFE4B5','color': '#blue !important','text-shadow': '0 1px 1px #2c803c'});
+			setStyle('answer2', {'background':'#FFE4B5','color': '#blue !important','text-shadow': '0 1px 1px #2c803c'});
+			setStyle('answer3', {'background':'#FFE4B5','color': '#blue !important','text-shadow': '0 1px 1px #2c803c'});
+			setStyle('answer4', {'background':'#FFE4B5','color': '#blue !important','text-shadow': '0 1px 1px #2c803c'});
+		}
+	}
 });
 
 socket.on('ready', function(data){
@@ -158,14 +163,13 @@ socket.on('notloged', function(data){
 socket.on('loged', function(data){
 		nicknameLogIn = data.username;
 		nicknameID = data.realID;
-		
-		if( userID === data.userID){
+		createdID = data.createdID
+		if(userID === data.userID){
 			$('#komunikat').append(' <div class="big-button-green"><a href="#start" class="start">Start!</a></div>  <a> Hello '+nicknameLogIn+'!</a>');
 		}
-
-			$('#quiz-clients ul').append('<li>'+nicknameLogIn+'</li>');
+		$('#quiz-clients ul').append('<li>'+nicknameLogIn+'</li>');
 	
-	});
+});
 
 	$('.answer1').live('click',function (){
 	    if(answ !== null){
@@ -220,8 +224,11 @@ socket.on('loged', function(data){
 
 
 function randomID(){
-		return (((1 + Math.random()) * 0x10000) | 0).toString(16);
-	}
+	var S4 = function () {
+		return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+	};
+	return (S4() + S4() + "-" + S4() + "-" + S4());
+}
 
 function setStyle( objId, propertyObject ){
 	 var elem = document.getElementById(objId);

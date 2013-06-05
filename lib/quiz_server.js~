@@ -13,7 +13,7 @@ db.open(function (err,db) {
 }
 });
 
-
+var createdID = [], LP=0;
 
 	var io = socketio.listen(server);
 	io.set('log level', 1);
@@ -47,7 +47,7 @@ var username,email,nil;
 							tit3: item.tit3,
 							tit4: item.tit4,
 							answ: item.answ, 
-																
+							userID: userID								
 							});
                 });
 	});
@@ -61,17 +61,19 @@ var username=data.username, password=data.password, userID=data.userID;
 	db.collection('users', function (err,collection) {
 		collection.find().toArray(function(err,users){
 			for( i = 0; i < users.length; i += 1) {
-				if(users[i].username === username && users[i].password === password){
+				if(users[i].username === username && users[i].password === password){					
 					flaga = true;
-					ID=users[i]._id;
-					console.log(ID);					
+					createdID[LP] = userID;
+					ID=users[i]._id
+					LP += 1;					
 				}
 			}
 			if(!flaga){
 				io.sockets.emit('notloged', {userID: userID});	
 			} 
 			else{
-				io.sockets.emit('loged', { username: username, userID: userID, realID: ID});
+				console.log(createdID[0]);
+				io.sockets.emit('loged', { username: username, userID: userID, realID: ID, createdID: createdID});
 			}
 		});
 	});
