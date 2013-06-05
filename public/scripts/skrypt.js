@@ -5,7 +5,7 @@ $(document).ready(function () {
     'use strict';
 
 	var createdID = [];
-	var userID=null,nickname,nicknameID;
+	var userID=null,nickname,nicknameID,nil,int;
 	var username,password,email,emailConfirm,passLength,nicknameLogIn=null;
 	var lp,words,tit1,tit2,tit3,tit4,answ=null,score=0;
 var socket = io.connect('http://localhost:8000');
@@ -83,10 +83,22 @@ $('.create-button').live('click', function (){
 
 
 $('a.start').live('click', function() {
+	nil=0;
+	int= setInterval(function(){Interval()},5000);
 
-	socket.emit('start', {userID: userID});
 
 });
+
+function Interval(){
+		nil+=1;
+		if(nil === 5){
+			clearInterval(int);
+			$('#quiz-clients ul').append('<li>koniec</li>');
+					
+		}
+
+		socket.emit('start', {userID: userID});
+}
 
 function createAccount(){
 	username=$('#create-username').attr('value');

@@ -5,7 +5,7 @@ $(document).ready(function () {
     'use strict';
 
 	var createdID = [];
-	var userID=null,nickname,nicknameID;
+	var userID=null,nickname,nicknameID,nil,int;
 	var username,password,email,emailConfirm,passLength,nicknameLogIn=null;
 	var lp,words,tit1,tit2,tit3,tit4,answ=null,score=0;
 var socket = io.connect('http://localhost:8000');
@@ -83,10 +83,22 @@ $('.create-button').live('click', function (){
 
 
 $('a.start').live('click', function() {
+	nil=0;
+	int= setInterval(function(){Interval()},5000);
 
-	socket.emit('start', {userID: userID});
 
 });
+
+function Interval(){
+		nil+=1;
+		if(nil === 6){
+			clearInterval(int);
+			$('#quiz-clients ul').append('<li>koniec</li>');
+					
+		}
+
+		socket.emit('start', {userID: userID});
+}
 
 function createAccount(){
 	username=$('#create-username').attr('value');
@@ -182,15 +194,15 @@ socket.on('loged', function(data){
 		if(tit1 === answ){
 			score += 1;
 			setStyle('answer1', {'background':'#369e4a'});
-			$('.answer2').hover("slow");
-			$('.answer3').hover("slow");
-			$('.answer4').hover("slow");
+			$('.answer2').fadeOut("slow");
+			$('.answer3').fadeOut("slow");
+			$('.answer4').fadeOut("slow");
 		}
 		else{
 			setStyle('answer1', {'background':'red'});
-			$('.answer2').hover("slow");
-			$('.answer3').hover("slow");
-			$('.answer4').hover("slow");
+			$('.answer2').fadeOut("slow");
+			$('.answer3').fadeOut("slow");
+			$('.answer4').fadeOut("slow");
 		}
 	    }
 	}); 
@@ -201,15 +213,15 @@ socket.on('loged', function(data){
 	 	if(tit2 === answ){
 			score += 1;
 			setStyle('answer2', {'background':'#369e4a'});
-			$('.answer1').hover("slow");
-			$('.answer3').hover("slow");
-			$('.answer4').hover("slow");
+			$('.answer1').fadeOut("slow");
+			$('.answer3').fadeOut("slow");
+			$('.answer4').fadeOut("slow");
 		}
 		else{
 			setStyle('answer2', {'background':'red'});
-			$('.answer1').hover("slow");
-			$('.answer3').hover("slow");
-			$('.answer4').hover("slow");
+			$('.answer1').fadeOut("slow");
+			$('.answer3').fadeOut("slow");
+			$('.answer4').fadeOut("slow");
 		}
 	    }	 	
 	}); 
@@ -220,15 +232,15 @@ socket.on('loged', function(data){
 	 	if(tit3 === answ){
 			score += 1;
 			setStyle('answer3', {'background':'#369e4a'});
-			$('.answer1').hover("slow");
-			$('.answer2').hover("slow");
-			$('.answer4').hover("slow");
+			$('.answer1').fadeOut("slow");
+			$('.answer2').fadeOut("slow");
+			$('.answer4').fadeOut("slow");
 		}
 		else{
 			setStyle('answer3', {'background':'red'});
-			$('.answer1').hover("slow");
-			$('.answer2').hover("slow");
-			$('.answer4').hover("slow");
+			$('.answer1').fadeOut("slow");
+			$('.answer2').fadeOut("slow");
+			$('.answer4').fadeOut("slow");
 		}
 	    }	 	
 	}); 
