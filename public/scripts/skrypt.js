@@ -5,7 +5,7 @@ $(document).ready(function () {
     'use strict';
 
 	var createdID = [];
-	var userID=null,nickname,nicknameID,nil,int;
+	var userID=null,nickname,nicknameID,nil,int,scoreEmit;
 	var username,password,email,emailConfirm,passLength,nicknameLogIn=null;
 	var lp,words,tit1,tit2,tit3,tit4,answ=null,score=0;
 var socket = io.connect('http://localhost:8000');
@@ -39,18 +39,22 @@ var socket = io.connect('http://localhost:8000');
 	
 	// When clicking on the button close or the mask layer the popup closed
 	$('a.close, #mask').live('click', function() { 
-	  $('#mask , .login-popup').fadeOut(300 , function() {
-		$('#mask').remove();  
-	}); 
-	return false;
+
+	  	$('#mask , .login-popup').fadeOut(300 , function() {
+			$('#mask').remove();  
+	 	 });
+
+	 	 $('#mask , .score-popup').fadeOut(300 , function() {
+			$('#mask').remove();  
+	  	}); 
+
+	 	 $('#mask , .create-login-popup').fadeOut(300 , function() {
+			$('#mask').remove();  
+	 	 }); 
+
+		return false;
 	});
 
-	$('a.close, #mask').live('click', function() { 
-	  $('#mask , .create-login-popup').fadeOut(300 , function() {
-		$('#mask').remove();  
-	}); 
-	return false;
-	});
 
 $('.button').live('click', function (){
 	$('#mask , .login-popup').fadeOut(300 , function() {
@@ -92,13 +96,16 @@ $('a.start').live('click', function() {
 
 function Interval(){
 		nil+=1;
-		if(nil === 5){
+		if(nil === 6){
 			clearInterval(int);
-			$('#quiz-clients ul').append('<li>koniec</li>');
-					
+			gameEnd();	
 		}
 
 		socket.emit('start', {userID: userID});
+}
+
+function gameEnd(){
+	socket.emit('gameend',{username: nicknameLogIn, score: score, userID: userID});
 }
 
 function createAccount(){
@@ -125,6 +132,23 @@ function handleNick(){
 	socket.emit('connect', { username: username, password: password,userID: userID});
 }
 
+socket.on('finish',function(data){
+	if(userID === data.userID){
+		var loginBox = $('#score-box');
+		$(loginBox).fadeIn(300);
+		var popMargTop = ($(loginBox).height() + 24) / 2; 
+		var popMargLeft = ($(loginBox).width() + 24) / 2;
+		$(loginBox).css({ 
+					'margin-top' : -popMargTop,
+					'margin-left' : -popMargLeft
+				});
+		$('body').append('<div id="mask"></div>');
+		$('#mask').fadeIn(300);
+		$('#results').append('<div class="Table" id="Table">Dzieki za gre :)<p>Jesli chcesz kontynuowac zamknij okno i wcianij start!</p></div>');
+	
+	}
+
+});
 
 socket.on('random',function(data){
 	lp=data.lp;

@@ -12,7 +12,7 @@
 						<div class="big-button-green" id="button1"><a href="#login-box" class="login-window">Sign In</a></div>
 						<div class="big-button-green" id="button2"><a href="#create-login-box" class="login-window">Create Account</a></div>				
 						<div class="komunikat" id="komunikat"></div>
-						<div class="score" id="score"><a>Score:</a><span class="points" id="points"></span></div>
+						<div class="score" id="score"><a>Score:</a></div>
 					</div>
 
 					<div class="cf-quiz-top">
@@ -83,6 +83,10 @@
                 <button class="create-button" type="button">create</button>                
                 </fieldset>
           </form>
+	</div>
+	<div id="score-box" class="score-popup">
+        <a href="#" class="close"><img src="images/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
+               
 	</div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
